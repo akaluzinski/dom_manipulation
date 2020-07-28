@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const element = document.getElementById('numbers_input');
+    const element = document.getElementById('numbersInput');
     const value = element.value;
     const state = {
         value
@@ -25,6 +25,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+const textAreaElement = document.getElementById('countedArea');
+const counterElement = document.getElementById('counter');
+
+textAreaElement.addEventListener('input', e => {
+    const target = e.target;
+    const maxLength = target.getAttribute('maxlength');
+    const currentLength = target.value.length;
+
+    counterElement.innerHTML = `${currentLength}/${maxLength}`;
+});
+
+
 const isBrowser = typeof window === 'object' && typeof document === 'object';
 
 console.log(isBrowser);
+
+
+document.getElementById('isBrowser').innerHTML = `${(typeof window === 'object' && typeof document === 'object')}`;
